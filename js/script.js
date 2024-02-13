@@ -69,4 +69,20 @@ const members = [
     }
 ]
 
-console.log(members);
+// console.log(members);
+
+
+const elementList = document.querySelector("ul");
+
+for (let i = 0; i < members.length; i++) {
+
+    const element = members[i];
+
+    let text = "";
+
+    for (let key in element){
+        text += `${key}: ${element[key]}`;
+    }
+
+    elementList.innerHTML += `<li>${text}</li>`;
+}
