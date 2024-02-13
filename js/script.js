@@ -75,17 +75,42 @@ for (let i = 0; i < members.length; i++) {
 
         const member = members[i];
 
-        const listItem = document.createElement('li')
+        // creo elemento 'li'
+        const listItem = document.createElement('li');
+        listItem.classList.add("col-lg-3");
 
-        //creo elementi img,h2(name) e p(role)
+        // creo elemento 'card'
+        const cardElement = document.createElement('div');
+        cardElement.classList.add("card");
+
+        // creo elemento 'img'
         const imgElement = document.createElement("img");
-        imgElement.src = `img/${member.photo}`
+        imgElement.src = `img/${member.photo}`;
 
-        listItem.appendChild(imgElement);
+        // creo elemento 'div' per il corpo della card
+        const cardBodyElement = document.createElement('div');
+        cardBodyElement.classList.add("card-body");
+
+        // creo elemento 'h5' per il nome dei membri del team
+        const nameElement = document.createElement('h2');
+        nameElement.classList.add("card-title");
+        nameElement.textContent = member.name;
+
+        //creo elemento 'p' per il ruolo dei membri del team
+        const roleElement = document.createElement('p');
+        roleElement.classList.add("card-role");
+        roleElement.textContent = member.role;
+
+        // aggiungo gli elementi alla card
+        cardBodyElement.appendChild(nameElement);
+        cardBodyElement.appendChild(roleElement);
+        cardElement.appendChild(imgElement);
+        cardElement.appendChild(cardBodyElement);
+
+        // aggiungo la card a 'li'
+        listItem.appendChild(cardElement);
+
         
-
         elementList.appendChild(listItem);
-
-
 
 }
