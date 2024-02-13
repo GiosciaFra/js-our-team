@@ -64,25 +64,28 @@ const members = [
     {
         name: "Barbara Ramos",
         role: "Graphic Designer",
-        photo: " barbara-ramos-graphic-designer.jpg"
+        photo: "barbara-ramos-graphic-designer.jpg"
         
     }
 ]
-
-// console.log(members);
-
 
 const elementList = document.querySelector("ul");
 
 for (let i = 0; i < members.length; i++) {
 
-    const element = members[i];
+        const member = members[i];
 
-    let text = "";
+        const listItem = document.createElement('li')
 
-    for (let key in element){
-        text += `${key}: ${element[key]}`;
-    }
+        //creo elementi img,h2(name) e p(role)
+        const imgElement = document.createElement("img");
+        imgElement.src = `img/${member.photo}`
 
-    elementList.innerHTML += `<li>${text}</li>`;
+        listItem.appendChild(imgElement);
+        
+
+        elementList.appendChild(listItem);
+
+
+
 }
